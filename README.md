@@ -1,31 +1,38 @@
 <h1 align="center">
   <br>
-  <img src="https://github.com/patekcz/czech-holidays-api/assets/52839023/de47535a-9ad6-42f3-b01f-0e66e14edcf4" alt="Czech Holidays API" width="100">
+  <a href="https://github.com/patekcz"><img src="https://github.com/patekcz/czech-holidays-api/assets/52839023/de47535a-9ad6-42f3-b01f-0e66e14edcf4" height="100" alt="Czech Holidays API"></a>
   <br>
-  Czech Holidays API
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=2000&pause=1000&random=false&width=160&lines=Czech+Holidays+API" alt="Typing SVG" /></a>
   <br>
 </h1>
 
-<p align="center">API pro české státní svátky napsané v JavaScriptu.</p>
-<p align="center">Poskytuje informace o českých státních svátcích pro aktuální den</p>
+<p align="center">
+  <b>API pro získání českých státních svátků a významných dnů</b>
+</p>
 
-<br>
+<p align="center">
+  <img src="https://img.shields.io/github/stars/patekcz/czech-holidays-api?style=social" alt="GitHub stars">
+  <img src="https://img.shields.io/github/forks/patekcz/czech-holidays-api?style=social" alt="GitHub forks">
+</p>
 
-## 🌸 Informace
-   
-- API poskytuje seznam českých státních svátků pro aktuální den.
-- Vrací data ve formátu JSON.
-- Obsahuje informace o názvu svátku, datu a typu (státní svátek, ostatní svátky).
-- Data jsou aktualizována automaticky.
+---
 
-<br>
+## 🌟 O projektu
+
+`Czech Holidays API` je API, které poskytuje informace o českých státních svátcích a významných dnech. Data jsou pravidelně aktualizována a dostupná ve formátu JSON.
+
+## 🚀 Funkce
+
+- 📅 Poskytuje aktuální informace o státních svátcích a významných dnech
+- 🔄 Pravidelná aktualizace dat
+- 📂 Jednoduchá struktura a snadné použití
 
 ## 🌱 Použití
-   
+
 Pro přístup k API použijte následující URL:
 
 ```
-https://raw.githubusercontent.com/patekcz/czech-holidays-api/main/public/api-data.json
+https://patekcz.github.io/czech-holidays-api/public/api-data.json
 ```
 
 - Příklad odpovědi:
@@ -43,10 +50,7 @@ https://raw.githubusercontent.com/patekcz/czech-holidays-api/main/public/api-dat
 }
 ```
 
-## Struktura projektu
-
-<details>
-  <summary>Klikněte pro zobrazení struktury projektu</summary>
+## 📂 Struktura projektu
 
 ```
 czech-holidays-api/
@@ -64,10 +68,21 @@ czech-holidays-api/
 │   └── utils/
 │       └── helpers.js
 │
-├── package.json
+├── web-template.html
+│
 └── README.md
 ```
 
-</details>
+## 🌐 Web Template
 
+Pro zobrazení webové šablony navštivte [web template](https://patekcz.github.io/czech-holidays-api/web-template.html).
 
+## 🤝 Přispívání
+
+Příspěvky jsou vítány! Pokud máte nápad na vylepšení nebo jste našli chybu, neváhejte otevřít issue nebo poslat pull request.
+
+---
+
+<p align="center">
+  Děkuji všem, kteří používají a podporují tento projekt! ❤️
+</p>
