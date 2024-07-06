@@ -13,15 +13,14 @@ function getAktualniDenInfo() {
   return svatkyData.svatky.filter(item => item.datum === datumKlic);
 }
 
-function formatDatumCas(datum) {
+function formatDatum(datum) {
   const dny = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
   const mesice = ['ledna', 'února', 'března', 'dubna', 'května', 'června', 'července', 'srpna', 'září', 'října', 'listopadu', 'prosince'];
 
   const den = dny[datum.getDay()];
   const datumStr = `${datum.getDate()}. ${mesice[datum.getMonth()]} ${datum.getFullYear()}`;
-  const cas = datum.toLocaleTimeString('cs-CZ');
 
-  return `${den} ${datumStr}, ${cas}`;
+  return `${den} ${datumStr}`;
 }
 
 function generateApiData() {
@@ -29,8 +28,8 @@ function generateApiData() {
   const info = getAktualniDenInfo();
 
   const apiData = {
-    datum: formatDatumCas(dnes),
-    casAktualizace: dnes.toISOString(),
+    aktualizace: dnes.toISOString(),
+    datum: formatDatum(dnes),
     informace: info.map(item => ({
       jmeno: item.jmeno,
       svatek: item.svátek,
@@ -42,15 +41,11 @@ function generateApiData() {
 }
 
 process.on('unhandledRejection', (reason, promise) => {
-  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
   process.exit(1);
 });
 
 try {
-  console.log('Začínám generovat API data...');
   generateApiData();
-  console.log('API data byla úspěšně vygenerována.');
 } catch (error) {
-  console.error('Došlo k chybě při generování API dat:', error);
   process.exit(1);
 }
