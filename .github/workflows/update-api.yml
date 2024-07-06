@@ -9,9 +9,9 @@ jobs:
   update-data:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Use Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
     - name: List directory contents
@@ -20,6 +20,8 @@ jobs:
       run: |
         [ -f src/generate-data.js ] && echo "generate-data.js exists" || echo "generate-data.js not found"
         [ -f src/data/date.json ] && echo "date.json exists" || echo "date.json not found"
+    - name: Display generate-data.js content
+      run: cat src/generate-data.js
     - name: Generate API data
       run: node src/generate-data.js
     - name: Commit and push if changed
