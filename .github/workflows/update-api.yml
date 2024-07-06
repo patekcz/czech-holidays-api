@@ -2,14 +2,22 @@ name: Update API Data
 
 on:
   schedule:
-    - cron: '0 22 * * *'
+    - cron: "0 22 * * *"
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   update-data:
+    permissions: 
+      contents: write
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    
     steps:
     - uses: actions/checkout@v4
+    
     - name: Use Node.js
       uses: actions/setup-node@v4
       with:
@@ -23,40 +31,20 @@ jobs:
         [ -f src/generate-data.js ] && echo "generate-data.js exists" || echo "generate-data.js not found"
         [ -f src/data/date.json ] && echo "date.json exists" || echo "date.json not found"
     
-    - name: Display generate-data.js content
-      run: cat src/generate-data.js
-    
-    - name: Display date.json content
-      run: cat src/data/date.json
-    
-    - name: Create public directory if not exists
-      run: mkdir -p public
-    
     - name: Generate API data
-      run: node src/generate-data.js
+      run: |
+        mkdir -p public
+        node src/generate-data.js
     
     - name: Check generated file
       run: |
         [ -f public/api-data.json ] && echo "api-data.json exists" && cat public/api-data.json || echo "api-data.json not found"
     
-    - name: Update local repository
-      run: |
-        git fetch origin
-        git reset --hard origin/main  # nebo název vaší hlavní větve
-    
-    - name: Check api-data.json
-      run: |
-        ls -l public/
-        cat public/api-data.json || echo "File is empty or does not exist"
-    
-    - name: Commit and push if changed
+    - name: Push generated data to output branch
       run: |
         git config --global user.name 'patekcz'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git add public/api-data.json
-        git status
-        git diff --staged
-        git commit -m "Aktualizace API dat" || echo "No changes to commit"
-        git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:${GITHUB_REF} || (echo "Push failed" && git push --verbose)
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Aktualizace API dat" && git push)
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
