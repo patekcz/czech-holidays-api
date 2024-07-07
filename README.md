@@ -75,7 +75,7 @@ czech-holidays-api/
 
 ## 🌐 Web Template
 
-Pro zobrazení webové šablony navštivte [web template](https://patekcz.github.io/czech-holidays-api/web-template.html).
+Pro zobrazení webové šablony navštivte [web template](https://patekcz.github.io/czech-holidays-api/web-template).
 
 ## 🤝 Přispívání
 
