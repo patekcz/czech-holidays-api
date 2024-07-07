@@ -40,6 +40,8 @@
         .code-editor pre {
             white-space: pre-wrap;
             word-wrap: break-word;
+            max-width: 100%;
+            overflow-x: auto;
         }
         .string { color: #ce9178; }
         .number { color: #b5cea8; }
@@ -63,9 +65,13 @@
             }
             .code-editor {
                 padding: 10px;
+                font-size: 12px; /* Zmenšení fontu pro mobilní zařízení */
             }
             h1 {
-                font-size: 1.5em;
+                font-size: 1.2em; /* Další zmenšení nadpisu */
+            }
+            .container {
+                width: 95%; /* Zvětšení šířky kontejneru */
             }
         }
         .Btn {
@@ -115,14 +121,20 @@
             background-color: rgba(156, 156, 156, 0.466);
             backdrop-filter: blur(4px);
         }
+        .scroll-container {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>České svátky API - Ukázka</h1>
         <div class="code-editor">
-            <div id="result">
-                <p class="loading">Načítání dat...</p>
+            <div class="scroll-container">
+                <div id="result">
+                    <p class="loading">Načítání dat...</p>
+                </div>
             </div>
             <div class="note" id="note">
                 # státní svátek = obchody zavřeny<br>
@@ -174,7 +186,7 @@
                 .then(data => {
                     holidaysData = data;
                     const jsonString = JSON.stringify(data, null, 2);
-                    resultDiv.innerHTML = `<pre>${syntaxHighlight(jsonString)}</pre>`;
+                    resultDiv.innerHTML = `<pre style="margin: 0;">${syntaxHighlight(jsonString)}</pre>`;
                     noteDiv.style.display = 'block'; // Zobrazit poznámky po načtení dat
                 })
                 .catch(error => {
