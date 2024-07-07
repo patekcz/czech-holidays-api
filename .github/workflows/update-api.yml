@@ -31,6 +31,11 @@ jobs:
         [ -f src/generate-data.js ] && echo "generate-data.js exists" || echo "generate-data.js not found"
         [ -f src/data/date.json ] && echo "date.json exists" || echo "date.json not found"
     
+    - name: Check date and timezone
+      run: |
+        date
+        echo $TZ
+    
     - name: Generate API data
       run: |
         mkdir -p public
