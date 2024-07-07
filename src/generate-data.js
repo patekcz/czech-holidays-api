@@ -10,7 +10,11 @@ function getAktualniDenInfo() {
   const den = String(dnes.getDate()).padStart(2, '0');
   const datumKlic = `${mesic}-${den}`;
 
-  return svatkyData.svatky.filter(item => item.datum === datumKlic);
+  console.log('Hledám data pro datum:', datumKlic);
+  const nalezenaData = svatkyData.svatky.filter(item => item.datum === datumKlic);
+  console.log('Nalezená data:', nalezenaData);
+
+  return nalezenaData;
 }
 
 function formatDatum(datum) {
@@ -25,7 +29,10 @@ function formatDatum(datum) {
 
 function generateApiData() {
   const dnes = new Date();
+  console.log('Aktuální datum:', dnes);
+
   const info = getAktualniDenInfo();
+  console.log('Získané informace pro dnešní den:', info);
 
   const apiData = {
     aktualizace: dnes.toISOString(),
@@ -36,6 +43,8 @@ function generateApiData() {
       typ: item.typ === 0 ? 'Jmeniny' : item.typ === 1 ? 'Státní svátek' : 'Významný den'
     }))
   };
+
+  console.log('Generovaná API data:', JSON.stringify(apiData, null, 2));
 
   fs.writeFileSync(path.join(__dirname, '..', 'public', 'api-data.json'), JSON.stringify(apiData, null, 2));
 }
