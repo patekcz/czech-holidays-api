@@ -55,6 +55,9 @@ https://patekcz.github.io/czech-holidays-api/public/api-data.json
 ```
 .
 └── czech-holidays-api
+    ├── .github
+    │   └── workflows
+    │       └── update-api.yml
     ├── public
     │   └── api-data.json
     ├── README.md
