@@ -53,23 +53,16 @@ https://patekcz.github.io/czech-holidays-api/public/api-data.json
 ## 📂 Struktura projektu
 
 ```
-czech-holidays-api/
-│
-├── .github/
-│   └── workflows/
-│       └── update.yml
-│
-├── public/
-│   └── api-data.json
-│
-├── src/
-│   ├── generate-data.js
-│   └── data/
-│       └── date.json
-│
-├── web-template.html
-│
-└── README.md
+.
+└── czech-holidays-api
+    ├── public
+    │   └── api-data.json
+    ├── README.md
+    ├── src
+    │   ├── data
+    │   │   └── date.json
+    │   └── generate-data.js
+    └── web-template.html
 ```
 
 ## 🌐 Web Template
