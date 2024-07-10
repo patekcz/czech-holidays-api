@@ -63,10 +63,9 @@ czech-holidays-api/
 │   └── api-data.json
 │
 ├── src/
-│   ├── index.js
-│   ├── updateData.js
-│   └── utils/
-│       └── helpers.js
+│   ├── generate-data.js
+│   └── data/
+│       └── date.json
 │
 ├── web-template.html
 │
