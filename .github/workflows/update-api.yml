@@ -1,4 +1,4 @@
-name: Update API Data
+name: Update README with WakaTime Stats
 
 on:
   schedule:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  update-data:
+  update-readme:
     permissions: 
       contents: write
     runs-on: ubuntu-latest
@@ -28,28 +28,27 @@ jobs:
     
     - name: Check file existence
       run: |
-        [ -f src/generate-data.js ] && echo "generate-data.js exists" || echo "generate-data.js not found"
-        [ -f src/data/date.json ] && echo "date.json exists" || echo "date.json not found"
+        [ -f update-readme.js ] && echo "update-readme.js exists" || echo "update-readme.js not found"
+        [ -f README.md ] && echo "README.md exists" || echo "README.md not found"
     
     - name: Check date and timezone
       run: |
         date
         echo $TZ
     
-    - name: Generate API data
+    - name: Update README with WakaTime stats
       run: |
-        mkdir -p public
-        node src/generate-data.js
+        node update-readme.js
     
-    - name: Check generated file
+    - name: Check updated README
       run: |
-        [ -f public/api-data.json ] && echo "api-data.json exists" && cat public/api-data.json || echo "api-data.json not found"
+        [ -f README.md ] && echo "README.md exists" && tail -n 20 README.md || echo "README.md not found"
     
-    - name: Push generated data to output branch
+    - name: Push updated README
       run: |
         git config --global user.name 'patekcz'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add public/api-data.json
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Aktualizace API dat $(date '+%Y-%m-%d %H:%M:%S')" && git push)
+        git add README.md
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Aktualizace WakaTime statistik $(date '+%Y-%m-%d %H:%M:%S')" && git push)
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
