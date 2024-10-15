@@ -1,10 +1,14 @@
 {
-  "aktualizace": "2024-10-15T02:04:52.239Z",
+  "aktualizace": "2024-10-15T02:06:02.670Z",
   "datum": "úterý 15. října 2024",
+  "kratkeDatum": "15.10",
+  "tyden": 42,
   "informace": [
     {
-      "jmeno": "Viktor",
-      "typ": "Jmeniny"
+      "svatek": "Tereza"
+    },
+    {
+      "vyznamnyDen": "Mezinárodní den bílé hole, Světový den žen žijících na venkově"
     }
   ]
 }
