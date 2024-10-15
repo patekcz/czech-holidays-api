@@ -39,12 +39,16 @@ https://patekcz.github.io/czech-holidays-api/public/api-data.json
 
 ```json
 {
-  "aktualizace": "2024-07-06T17:59:21.061Z",
-  "datum": "sobota 6. července 2024",
+  "aktualizace": "2024-10-15T02:06:02.670Z",
+  "datum": "úterý 15. října 2024",
+  "kratkeDatum": "15.10",
+  "tyden": 42,
   "informace": [
     {
-      "svatek": "Den upálení mistra Jana Husa",
-      "typ": "Státní svátek"
+      "svatek": "Tereza"
+    },
+    {
+      "vyznamnyDen": "Mezinárodní den bílé hole, Světový den žen žijících na venkově"
     }
   ]
 }
@@ -53,19 +57,17 @@ https://patekcz.github.io/czech-holidays-api/public/api-data.json
 ## 📂 Struktura projektu
 
 ```
-.
-└── czech-holidays-api
-    ├── .github
-    │   └── workflows
-    │       └── update-api.yml
-    ├── public
-    │   └── api-data.json
-    ├── README.md
-    ├── src
-    │   ├── data
-    │   │   └── date.json
-    │   └── generate-data.js
-    └── web-template.html
+├── .github
+│   └── workflows
+│       └── update-api.yml
+├── public
+│   └── api-data.json
+├── README.md
+├── src
+│   ├── data
+│   │   └── holidays.json
+│   └── generate-data.js
+└── web-template.html
 ```
 
 ## 🌐 Web Template
