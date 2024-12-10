@@ -1,7 +1,14 @@
 {
-  "aktualizace": "2024-12-09T01:03:51.077Z",
-  "datum": "pondělí 9. prosince 2024",
-  "kratkeDatum": "9.12",
+  "aktualizace": "2024-12-10T01:03:04.130Z",
+  "datum": "úterý 10. prosince 2024",
+  "kratkeDatum": "10.12",
   "tyden": 50,
-  "informace": []
+  "informace": [
+    {
+      "svatek": "Julie, Julia, Juliana"
+    },
+    {
+      "vyznamnyDen": "Mezinárodní den lidských práv"
+    }
+  ]
 }
